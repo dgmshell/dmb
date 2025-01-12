@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.n-app{
+    background-color: #f3f6ff;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 200;
+}
+.n-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.n-header{
+    display: flex;
+    justify-content: space-between;
+}
+.n-dataTable thead{
+    background-color: #f5f7f9;
+
+}
+.n-nav-content{
+    display: flex;
+}
+/* Modal styles */
+.n-modal {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 500px;
+    max-width: 90%;
+    background: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: bottom 0.4s ease;
+    z-index: 10;
+    padding: 20px;
+    opacity: 0;
+    overflow: scroll;
+}
+
+.n-modal.show {
+    bottom: 10%;
+    opacity: 1;
+    z-index: 300;
+}
+
+.n-modal-content {
+    position: relative;
+   
+}
+
+.n-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Overlay styles */
+.n-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.n-modal-overlay.show {
+    z-index: 201;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.buttons-icons{
+    height: 27px;
+    border-radius: 4px;
+    border: 0;
+    outline: none;
+}
+.buttons-icons svg{
+    width: 24px;
+    pointer-events: none;
+}

@@ -1,0 +1,87 @@
+{
+    "Data": [
+    {
+        "Id": 1,
+        "Name": "Active"
+    },
+    {
+        "Id": 2,
+        "Name": "Settled"
+    },
+    {
+        "Id": 3,
+        "Name": "Cancelled"
+    },
+    {
+        "Id": 4,
+        "Name": "Withdrawn"
+    },
+    {
+        "Id": 5,
+        "Name": "Summons"
+    },
+    {
+        "Id": 6,
+        "Name": "Closed Summons"
+    },
+    {
+        "Id": 7,
+        "Name": "Term Settlement"
+    },
+    {
+        "Id": 8,
+        "Name": "Summons - Uploaded"
+    },
+    {
+        "Id": 9,
+        "Name": "Judgment"
+    },
+    {
+        "Id": 10,
+        "Name": "1099 C"
+    },
+    {
+        "Id": 11,
+        "Name": "Garnishment"
+    },
+    {
+        "Id": 12,
+        "Name": "Client Settled"
+    },
+    {
+        "Id": 13,
+        "Name": "Paid in Full"
+    },
+    {
+        "Id": 14,
+        "Name": "Statute of Limitation"
+    },
+    {
+        "Id": 15,
+        "Name": "Client paid"
+    },
+    {
+        "Id": 16,
+        "Name": "Paid BIF In-House"
+    },
+    {
+        "Id": 17,
+        "Name": "Deceased"
+    },
+    {
+        "Id": 18,
+        "Name": "Blocked"
+    },
+    {
+        "Id": 19,
+        "Name": "Settlement Voided\r\n"
+    }
+],
+    "Message": "Get.",
+    "Errors": []
+}
+
+//const statusCreditor = `https://api.globalholdings.app/api/Creditor`;
+//{
+//"Type": "getCreditorStatus"
+//}
