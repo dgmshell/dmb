@@ -4,15 +4,18 @@
   "description": "DMB Debt Update.",
   "manifest_version": 3,
   "permissions": [
-    "storage",
-    "https://globalholdings.app"
+    "storage"
   ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "32": "assets/images/icon_32.png",
       "64": "assets/images/icon_64.png"
-    }
+    },
+    "host_permissions": [
+      "https://example.com/*",
+      "https://another-domain.com/*"
+    ]
   },
   "icons": {
     "32": "assets/images/icon_32.png",
@@ -20,9 +23,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://globalholdings.app/*"],
+      "matches": ["<all_urls>"],
       "js": ["src/js/app.js", "src/js/toast.js", "src/js/dom.js"],
-      "css": ["src/css/main.css", "src/css/toast.css"],
+      "css": ["src/css/app.css","src/css/main.css", "src/css/toast.css"],
       "run_at": "document_end"
     }
   ],

@@ -1,13 +1,256 @@
-<!doctype html>
-<html lang="git">
+<!--<!DOCTYPE html>-->
+<!--<html lang="es">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Aprendiendo Inglés con Voz</title>-->
+<!--    <style>-->
+<!--        /* Estilos CSS */-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f4;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .container {-->
+<!--            text-align: center;-->
+<!--            background-color: #fff;-->
+<!--            border-radius: 8px;-->
+<!--            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);-->
+<!--            padding: 20px;-->
+<!--            max-width: 400px;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            font-size: 24px;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .step-container {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            background-color: #4CAF50;-->
+<!--            color: white;-->
+<!--            padding: 10px 20px;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--        }-->
+
+<!--        button:hover {-->
+<!--            background-color: #45a049;-->
+<!--        }-->
+
+<!--        .voice-button {-->
+<!--            margin-top: 10px;-->
+<!--            background-color: #2196F3;-->
+<!--        }-->
+
+<!--        .voice-button:hover {-->
+<!--            background-color: #1e88e5;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h1>Aprende Inglés Paso a Paso</h1>-->
+<!--    <div class="step-container">-->
+<!--        <p id="step-text">¡Comienza a aprender palabras en inglés!</p>-->
+<!--        <button id="next-button">Siguiente palabra</button>-->
+<!--        <button id="voice-button" class="voice-button">Escuchar pronunciación</button>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    // JavaScript para el aprendizaje interactivo con voz-->
+<!--    const vocabulary = [-->
+<!--        { word: "Hello", translation: "Hola" },-->
+<!--        { word: "Goodbye", translation: "Adiós" },-->
+<!--        { word: "Please", translation: "Por favor" },-->
+<!--        { word: "Thank you", translation: "Gracias" },-->
+<!--        { word: "Yes", translation: "Sí" },-->
+<!--        { word: "No", translation: "No" },-->
+<!--        { word: "Sorry", translation: "Perdón" },-->
+<!--        { word: "Excuse me", translation: "Perdóneme" },-->
+<!--        { word: "Good morning", translation: "Buenos días" },-->
+<!--        { word: "Excellent, you have reached the end of the course, keep studying so you can improve your English.", translation: "Excelente, has llegado al final del curso, sigue estudiando para que puedas mejorar tu inglés." }-->
+<!--    ];-->
+
+<!--    let currentStep = 0;-->
+
+<!--    const stepText = document.getElementById('step-text');-->
+<!--    const nextButton = document.getElementById('next-button');-->
+<!--    const voiceButton = document.getElementById('voice-button');-->
+
+<!--    function showNextStep() {-->
+<!--        if (currentStep < vocabulary.length) {-->
+<!--            stepText.innerHTML = `<strong>${vocabulary[currentStep].word}</strong> - ${vocabulary[currentStep].translation}`;-->
+<!--            currentStep++;-->
+<!--        } else {-->
+<!--            stepText.textContent = "¡Felicidades! Has aprendido algunas palabras básicas en inglés.";-->
+<!--            nextButton.disabled = true;-->
+<!--            nextButton.textContent = "¡Completado!";-->
+<!--        }-->
+<!--    }-->
+
+<!--    function speakText(text, language) {-->
+<!--        const utterance = new SpeechSynthesisUtterance(text);-->
+<!--        utterance.lang = language;-->
+<!--        window.speechSynthesis.speak(utterance);-->
+<!--    }-->
+
+<!--    function speakWordAndTranslation() {-->
+<!--        const currentWord = vocabulary[currentStep - 1]; // Get the current word-->
+<!--        if (currentWord) {-->
+<!--            // Pronounce in English-->
+<!--            speakText(currentWord.word, "en-US");-->
+<!--            // Pronounce in Spanish-->
+<!--            setTimeout(() => {-->
+<!--                speakText(currentWord.translation, "es-ES");-->
+<!--            }, 2000); // Wait 2 seconds to speak the translation-->
+<!--        }-->
+<!--    }-->
+
+<!--    nextButton.addEventListener('click', showNextStep);-->
+<!--    voiceButton.addEventListener('click', speakWordAndTranslation);-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversación con IA</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .start-button {
+            margin-top: 20px;
+            background-color: #2196F3;
+        }
+
+        .start-button:hover {
+            background-color: #1e88e5;
+        }
+    </style>
 </head>
 <body>
-<h1>Hola Mundo house 2025</h1>
+<div class="container">
+    <h1>Hablemos con la IA</h1>
+    <button id="start-button" class="start-button">Iniciar conversación</button>
+    <p id="conversation-text">¡Haz clic en "Iniciar conversación" para comenzar!</p>
+</div>
+
+<script>
+    // Variables de control
+    const startButton = document.getElementById("start-button");
+    const conversationText = document.getElementById("conversation-text");
+
+    // Crear objeto para reconocer la voz del usuario
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "es-ES"; // Configuramos para escuchar en español por defecto
+
+    // Configuramos para que reconozca el habla del usuario
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    // Función para que la IA hable
+    function speakText(text, language = "es-ES") {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = language;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // Iniciar la conversación con la IA
+    startButton.addEventListener('click', () => {
+        // Cambiar el texto en pantalla y empezar a escuchar
+        conversationText.textContent = "IA: ¡Hola! Hablemos de cualquier tema en inglés y español.";
+        speakText("Hola, hablemos de cualquier tema en inglés y español.");
+
+        // Cambiar el idioma a inglés después de unos segundos
+        setTimeout(() => {
+            recognition.lang = "en-US"; // Cambiar el idioma a inglés
+            conversationText.textContent = "IA: How are you? Let's talk in English!";
+            speakText("How are you? Let's talk in English!", "en-US");
+        }, 5000);
+
+        // Comenzar a escuchar lo que el usuario diga
+        recognition.start();
+    });
+
+    // Reconocer lo que dice el usuario
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.results.length - 1][0].transcript;
+        console.log(`Usuario dijo: ${transcript}`);
+
+        // La IA responde con lo que el usuario dice
+        if (recognition.lang === "es-ES") {
+            conversationText.textContent = `Usuario (Español): ${transcript}`;
+            speakText(`Dijiste: ${transcript} en español. Ahora cambiamos a inglés.`);
+        } else {
+            conversationText.textContent = `User (English): ${transcript}`;
+            speakText(`You said: ${transcript} in English.`);
+        }
+
+        // Cambiar el idioma de la conversación después de cada respuesta
+        if (recognition.lang === "en-US") {
+            recognition.lang = "es-ES"; // Cambiar a español después de hablar inglés
+        } else {
+            recognition.lang = "en-US"; // Cambiar a inglés después de hablar español
+        }
+    };
+
+    // Detener el reconocimiento de voz cuando se complete
+    recognition.onend = () => {
+        console.log("Reconocimiento de voz detenido.");
+        recognition.start(); // Reinicia el reconocimiento
+    };
+</script>
+
 </body>
 </html>
