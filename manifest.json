@@ -23,8 +23,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/js/app.js", "src/js/toast.js", "src/js/dom.js"],
+      "matches": ["https://globalholdings.app/login","https://secure.debttrakker.net/clientdetails.aspx*"],
+      "js": ["src/js/app.js", "src/js/toast.js", "src/js/dom.js","src/js/trebol-icons.js"],
       "css": ["src/css/app.css","src/css/main.css", "src/css/toast.css"],
       "run_at": "document_end"
     }

@@ -1,5 +1,6 @@
 function dom(){
     return `
+            
             <div class="crm-app">
                 <div class="crm-app-content-full">
                     <div class="crm-navbar">
@@ -21,6 +22,9 @@ function dom(){
                                     <input type="search" id="CustomerId" placeholder="Customer Id">
                                 </div>
                                 <button class="crm-button" id="button-search-customer">Search</button>
+                                <div class="treb-icons">
+                                    <span icon-data="folder">ee</span>
+                                </div>
                             </div>
                         </div>
                     <div class="crm-app-content">

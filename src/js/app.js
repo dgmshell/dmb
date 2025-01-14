@@ -1,4 +1,6 @@
+
 window.addEventListener("load", function () {
+
     const d = document.body;
     const bodyApp = document.createElement("div");
     bodyApp.classList.add("app");
