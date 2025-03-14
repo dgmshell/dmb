@@ -9,26 +9,26 @@ window.addEventListener("load", function () {
     d.appendChild(bodyApp);
 
     const ButtonSearchCustomer = document.getElementById("button-search-customer");
-   // const read = document.getElementById("read");
+   const read = document.getElementById("read");
     const inputEvent = new Event('input', {
         bubbles: true,
         cancelable: true
     });
-    // read.addEventListener("click", async () => {
-    //     getInfoProfile().then((data) => {
-    //         return console.log(data)
-    //         const DebtFirstname = document.querySelector("#i0_txtFirstname")
-    //         DebtFirstname.value = data.FirstName +"update";
-    //
-    //         DebtFirstname.dispatchEvent(inputEvent);
-    //
-    //     });
-    // })
+    read.addEventListener("click", async () => {
+        getInfoProfile().then((data) => {
+            return console.log(data)
+            const DebtFirstname = document.querySelector("#i0_txtFirstname")
+            DebtFirstname.value = data.FirstName +"update";
+
+            DebtFirstname.dispatchEvent(inputEvent);
+
+        });
+    })
 
 
     ButtonSearchCustomer.addEventListener("click", async () => {
         const authorization =
-            "Bearer p1v3sNCM2IWs34lzJmdZ2naKSERUJv3pKpxm8dsV6vePMBNn2zZib1YBbkkn6sCGPqhNH81q4HcGIL8R1nbTWVOTQvLY2EZOsY9fd9g48snTYS2QlTvSRtu3bO6Wwdxz5b4e4ecc501a4f529d5796be124029dd";
+            "Bearer YCEneuhODV42kzEEdHzkx5xIdJosp2Q3NFY8WKsctkciVwWig7B4FrqdO6JUFziLEApfbFsTZW1NcPwqxGLs0WyfY5tZAXX3CRdVG0HbPses0dB9Kch9o0VrMKGgVSSBb75576b8e32a498097073cb7f2897f1e";
         const getInfo = `https://api.globalholdings.app/api/Customer`;
 
         const InputCustomerId = document.getElementById("CustomerId");
@@ -59,7 +59,7 @@ window.addEventListener("load", function () {
                     PhoneNumber: PhoneNumber,
                     DateOfBirth: DateOfBirth
                 };
-
+                SaveInfo(formData)
                 // Insert the data into the HTML
                 document.getElementById("FirstName").textContent = formData.FirstName;
                 document.getElementById("LastName").textContent = formData.LastName;
