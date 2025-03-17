@@ -1,83 +1,100 @@
 function dom() {
-    // Verificar si estamos en el dominio correcto
-    if (window.location.href === "https://globalholdings.app/login") {
-        return `
-            <div class="crm-app">
-                <div class="crm-app-content-full">
-                    <div class="crm-navbar">
-                        <nav>
-                            <div class="crm-button-navbar">
-                                <button class="crm-button">DMB</button>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="crm-section-search">
-                        <div class="crm-navigation">
-                            <div class="crm-button-navbar">
-                                <button class="crm-button">Debt Update</button>
-                                <button class="crm-button">Debt Review</button>
-                            </div>
-                        </div>
-                        <div class="crm-search">
-                            <div class="crm-input">
-                                <input type="search" id="CustomerId" placeholder="Customer Id">
-                            </div>
-                            <button class="crm-button" id="button-search-customer">Search</button>
-                            <div class="treb-icons">
-                                <span icon-data="folder">ee</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="crm-app-content">
-                    </div>
-                </div>
-            </div>
+    // if (window.location.href === "https://globalholdings.app/login") {
+        const crmAppDiv = document.createElement("div");
+        crmAppDiv.className = "crm-app";
 
-            <div id="CustomerInformation" class="customer-info">
-                <div class="info-section">
-                    <h3>Personal Information</h3>
-                    <div class="info-item">
-                        <label>First Name:</label>
-                        <span id="FirstName"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>Last Name:</label>
-                        <span id="LastName"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>Address:</label>
-                        <span id="Address"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>City:</label>
-                        <span id="City"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>State:</label>
-                        <span id="State"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>Zip:</label>
-                        <span id="Zip"></span>
+        crmAppDiv.innerHTML = `
+            <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="crm-p-4 crm-main">
+                        <h4 class="text-white">Trebol DMB</h4>
+                       
+                       
+                       <nav class="navbar bg-body-tertiary">
+                      <div class="container-fluid">
+                          <input id="CustomerId" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button id="button-search-customer" class="btn btn-outline-success" type="submit">Search</button>
+                       
+                      </div>
+                    </nav>
+                        <div class="crm-profile">
+                            <table class="table table-bordered">
+                                <h3>Personal Information</h3>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">State</th>
+                                        <th scope="col">Zip</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Date Of Birth</th>
+                                        <th scope="col">Debt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row"><span id="FirstName"></span></td>
+                                        <td><span id="LastName"></span></td>
+                                        <td><span id="Address"></span></td>
+                                        <td><span id="City"></span></td>
+                                        <td><span id="State"></span></td>
+                                        <td><span id="Zip"></span></td>
+                                        <td><span id="PhoneNumber"></span></td>
+                                        <td><span id="DateOfBirth"></span></td>
+                                        <td><span id="Debt"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="crm-creditors">
+                            <table class="table table-bordered">
+                                <h3>Creditors</h3>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Creditor Name</th>
+                                        <th scope="col">Account Number</th>
+                                        <th scope="col">Account Holder</th>
+                                        <th scope="col">Balance</th>
+                                        <th scope="col">Type Of Debt</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbCreditors">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                <nav class="navbar navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <button id="button-get-info" type="button" class="btn btn-primary">Info</button>
 
-                <div class="info-section phone-birth">
-                    <div class="info-item">
-                        <label>Phone Number:</label>
-                        <span id="PhoneNumber"></span>
-                    </div>
-                    <div class="info-item">
-                        <label>Date of Birth:</label>
-                        <span id="DateOfBirth"></span>
-                    </div>
-                </div>
+                </nav>
             </div>
         `;
-    } else {
-        console.log("This script only runs on https://globalholdings.app/login");
-    }
-}
 
-// Llamar a la función dom() para ver si el código se ejecuta en el dominio correcto
-console.log(dom());
+        // Ahora agregamos el nuevo elemento al body
+        document.body.appendChild(crmAppDiv);
+
+        // Añadir evento al botón del navbar
+        const toggleButton = document.querySelector(".navbar-toggler");
+        const collapsibleDiv = document.getElementById("navbarToggleExternalContent");
+
+        toggleButton.addEventListener("click", function () {
+            if (collapsibleDiv.classList.contains("show")) {
+                collapsibleDiv.classList.remove("show");
+                collapsibleDiv.style.display = "none";
+            } else {
+                collapsibleDiv.classList.add("show");
+                collapsibleDiv.style.display = "block";
+            }
+        });
+    // }
+    // else {
+    //     console.log("Este script solo se ejecuta en https://globalholdings.app/login");
+    // }
+}
