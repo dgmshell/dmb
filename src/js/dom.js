@@ -72,6 +72,7 @@ function dom() {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <button id="button-get-info" type="button" class="btn btn-primary">Info</button>
+                    <button id="button-get-creditor" type="button" class="btn btn-primary">creditors</button>
 
                 </nav>
             </div>

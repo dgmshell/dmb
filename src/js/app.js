@@ -9,6 +9,7 @@ window.addEventListener("load", function () {
 
     const ButtonSearchCustomer = document.getElementById("button-search-customer");
    const read = document.getElementById("button-get-info");
+    const creditors = document.getElementById("button-get-creditor");
     const inputEvent = new Event('input', {
         bubbles: true,
         cancelable: true
@@ -58,11 +59,46 @@ window.addEventListener("load", function () {
             clearInfoProfile();
         });
     })
+    creditors.addEventListener("click", async () => {
 
+
+
+        const DebtAccountNumber = document.querySelector("#i3_txtAcctNumber");
+        const DebtName = document.querySelector("#i3_txtCreditorName");
+        const DebtBalance = document.querySelector("#i3_txtBalance");
+        const DebtTypeOfDebt = document.querySelector("#i3_ddlTypeOfDebt");
+
+
+
+
+        getCreditors().then((data) => {
+            console.log("data",data)
+            if (!data || Object.keys(data).length === 0) {
+                console.warn("No se recibió información de los acreedores.");
+                return; // Detiene la ejecución si no hay datos
+            }
+            DebtAccountNumber.value = data[0].AccountNumber;
+            DebtName.value = data[0].Name;
+            DebtBalance.value = data[0].Balance;
+            DebtTypeOfDebt.value = "Credit Card";
+
+
+
+            DebtAccountNumber.dispatchEvent(inputEvent);
+            DebtName.dispatchEvent(inputEvent);
+            DebtBalance.dispatchEvent(inputEvent);
+
+            DebtTypeOfDebt.dispatchEvent(changeEvent);
+
+
+
+            clearCreditors();
+        });
+    })
 
     ButtonSearchCustomer.addEventListener("click", async () => {
         const authorization =
-            "Bearer yvMpAn1X1fwiDMG3m1Av6MpbQPQ6XqyhH9IO282Kg9NYtD4YBRakIIIlGuYvX4AKrOaED2Bo90P79QrMV25FPNZ80gIHjGwl8CrfmzUJQvlS3LmzDLae954dzcOgu3F261438db169984f4bbad0239df25bba67";
+            "Bearer QDa1zmlhyMRb4WBu1Fe9y6cUi8wgOqwb3rincHWMo6z3Eu0S6jQXltFTlGS00ESIa0hMyYRtsRU2HjQxIdjoZZzKmOCWzgWjnqdONneiSgoTYNMBzesWfntAAXkkW54Mf472fb2fb1124325b301f66b26afdb6c";
 
         const getInfo = `https://api.globalholdings.app/api/Customer`;
         const getCreditors = `https://api.globalholdings.app/api/Creditor`;
@@ -177,9 +213,13 @@ window.addEventListener("load", function () {
         await chrome.storage.local.set({ InfoCreditors });
         console.log('Datos del formulario guardados:', InfoCreditors);
     };
-    const clearInfoProfile = async () => {
-        await chrome.storage.local.remove('InfoProfile');
-        console.log("InfoProfile eliminado del almacenamiento local.");
+    const getCreditors = async () => {
+        const result = await chrome.storage.local.get(['InfoCreditors']);
+        return result.InfoCreditors;
+    };
+    const clearCreditors = async () => {
+        await chrome.storage.local.remove('InfoCreditors');
+        console.log("InfoCreditors eliminado del almacenamiento local.");
     };
 
 // Función para generar dinámicamente los requestOptions

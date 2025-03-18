@@ -1,0 +1,33 @@
+Profile
+===================
+First Name
+Last Name
+Address
+City
+State:	
+Zip Code:
+Social Security Num
+DOB: (ex. 06/21/1970)
+Email:	
+Credit Card Debt Amt:
+====================
+CoApplicant
+First Name:	
+Last Name:
+Address:
+City:	
+State:	
+Zip Code:
+Social Security Num
+DOB: (ex. 06/21/1970)
+Email:	
+
+=====================
+Creditors
+Creditor Name
+Account Number	
+Debt Type
+Balance
+Routing #:
+Bank Account Number:	
+Date of ACH Pull:	
