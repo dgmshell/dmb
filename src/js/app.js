@@ -25,7 +25,13 @@ window.addEventListener("load", function () {
         const DebtPhoneNumber = document.querySelector("#i0_txtHomePhone");
 
         const DebtDateOfBirth = document.querySelector("#i0_txtDOB");
+
+
+        const DebtProgram = document.querySelector("#i0_ddlTransferred");
+        const DebtStatus = document.querySelector("#i0_StatusList");
+
         const DebtCreditorTotalBalance = document.querySelector("#i0_txtAmtOfCCDebt");
+
 
         getInfoProfile().then((data) => {
             if (!data || Object.keys(data).length === 0) {
@@ -98,7 +104,7 @@ window.addEventListener("load", function () {
 
     ButtonSearchCustomer.addEventListener("click", async () => {
         const authorization =
-            "Bearer QDa1zmlhyMRb4WBu1Fe9y6cUi8wgOqwb3rincHWMo6z3Eu0S6jQXltFTlGS00ESIa0hMyYRtsRU2HjQxIdjoZZzKmOCWzgWjnqdONneiSgoTYNMBzesWfntAAXkkW54Mf472fb2fb1124325b301f66b26afdb6c";
+            "Bearer UmcOMVgQsCdActO9PTivCivGbr3OJEEOcVyEAbyTEGfvecR10SZSiWow1VxebSHo8PhH5K9yeOq5C9m8aBX0ovpGqBMooU1w80xO4J6qTlxUpsu1tyEa5RAMkba37VKK91da5533e88547e68a1e446aea1f91f9";
 
         const getInfo = `https://api.globalholdings.app/api/Customer`;
         const getCreditors = `https://api.globalholdings.app/api/Creditor`;
@@ -123,6 +129,21 @@ window.addEventListener("load", function () {
                 const profile = info.Data.CustomerProfile;
                 const address = profile.Address || {};
                 const stateData = States?.Data?.find(state => state.Id === address.StateId) || {};
+
+                let program ="";
+                let status ="";
+
+
+                const ListStates = ["PA", "RI", "TN", "UT", "VA", "WI", "SD", "WY", "KS", "CO", "GA", "ID", "IA", "KY", "LA", "MN", "NV", "NH", "OH"];
+                program = ListStates.includes(stateData.ShortCode) ? "SIBERT" : "DMB";
+
+                console.log(program);
+
+
+
+
+
+
 
                 const formData = {
                     FirstName: profile.FirstName || "",
